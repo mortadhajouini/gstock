@@ -1,0 +1,29 @@
+// Root build.gradle file (android/build.gradle)
+
+allprojects {
+    repositories {
+        google()  // Required for Firebase and other Google services
+        mavenCentral()  // Central repository for dependencies
+    }
+}
+
+rootProject.buildDir = "../build"  // Defines the build directory for your project
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"  // Sets subproject build directories
+}
+
+subprojects {
+    project.evaluationDependsOn(":app")  // Ensures that all subprojects depend on the ":app" project
+}
+
+buildscript {
+    repositories {
+        google()  // Make sure to include this
+        mavenCentral()  // For other dependencies
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.1'  // Ensure you're using the latest stable version
+        classpath 'com.google.gms:google-services:4.3.15'  // This version of the plugin is compatible with the latest Firebase SDKs
+    }
+}
