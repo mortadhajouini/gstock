@@ -1,52 +1,49 @@
-// App-level build.gradle (android/app/build.gradle)
-
 plugins {
     id "com.android.application"
     id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"  // This should remain last
+    id "dev.flutter.flutter-gradle-plugin"  // Keep Flutter plugin last
 }
 
 android {
-    namespace = "com.example.gstock"  // Ensure this matches the Firebase setup and your app's namespace
-    compileSdkVersion 34  // Update this if needed
+    namespace = "com.example.gstock" // Update to your package name
+    compileSdkVersion 34
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "1.8"
     }
 
+
     defaultConfig {
-        applicationId = "com.example.gstock"  // This must match your Firebase project's package
-        minSdkVersion 21  // Or the minimum version you want to support
-        targetSdkVersion 33  // Update to your preferred target SDK
-        versionCode 1  // Increment this for each app version release
-        versionName "1.0.0"  // Your version name (e.g., 1.0.0)
+        applicationId "com.example.gstock"  // Match Firebase setup
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0.0"
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug  // Update this for release builds
+            signingConfig = signingConfigs.debug  // Change for release builds
         }
     }
 }
 
 flutter {
-    source = "../.."  // Path to the Flutter source
+    source = "../.."  // Path to Flutter source
 }
 
 dependencies {
-    // Firebase dependencies
-    implementation 'com.google.firebase:firebase-analytics:21.0.0'  // Make sure to use the latest stable version
-    implementation 'com.google.firebase:firebase-auth:21.0.0'  // For Firebase Authentication
-    implementation 'com.google.firebase:firebase-firestore:24.0.0'  // For Firestore
-
-    // QR code scanner and other dependencies
-    implementation 'com.google.firebase:firebase-core:2.12.0'  // Firebase core if needed
-    implementation 'com.google.android.gms:play-services-ads:21.0.0'  // Google Play services for ads (if necessary)
+    implementation 'com.google.firebase:firebase-analytics:21.0.0'
+    implementation 'com.google.firebase:firebase-auth:21.0.0'
+    implementation 'com.google.firebase:firebase-firestore:24.0.0'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.android.gms:play-services-ads:21.0.0'
 }
 
-apply plugin: 'com.google.gms.google-services'  // Make sure this line is at the bottom of the file
+apply plugin: 'com.google.gms.google-services'

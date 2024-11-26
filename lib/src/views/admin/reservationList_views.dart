@@ -6,7 +6,6 @@ import 'package:gstock/src/data/globals.dart';
 import 'package:gstock/src/models/reservationModel.dart';
 import 'package:gstock/src/services/reservationServices.dart';
 import 'package:gstock/src/utils/theme_utils.dart';
-import 'package:gstock/src/widgets/scanner_widget.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class ReservationAdminList extends StatefulWidget {
@@ -57,7 +56,6 @@ class _ReservationAdminListState extends State<ReservationAdminList> {
               children:   [
                SizedBox(height: 8.h,),
                      GestureDetector(
-                      onTap: ()=> Get.dialog(QrCodeScannerWidget(resrv:reservationList![index] ,)).then((value) => getreservation()),
                        child: Container(width: 200.w, height: 50.h, decoration: BoxDecoration( border: Border.all( color: Colors.greenAccent)  , borderRadius: BorderRadius.circular(100)) , child: Row(mainAxisAlignment: MainAxisAlignment.center,
                          children: [
                         const  Icon(Icons.done , color: Colors.green, ),
@@ -74,3 +72,4 @@ class _ReservationAdminListState extends State<ReservationAdminList> {
     );
   }
 }
+

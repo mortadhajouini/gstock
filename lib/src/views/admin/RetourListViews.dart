@@ -7,7 +7,6 @@ import 'package:gstock/src/models/reservationModel.dart';
 import 'package:gstock/src/services/reservationServices.dart';
 import 'package:gstock/src/utils/theme_utils.dart';
 import 'package:gstock/src/widgets/returned_composant_widget.dart';
-import 'package:gstock/src/widgets/scanner_widget.dart';
 
 class RetourList extends StatefulWidget {
   const RetourList({super.key});
